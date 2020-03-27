@@ -2,7 +2,11 @@
     text-align: center;
 }
 
-.pad-form{
+.pad-form, .loading{
     width: 50%;
     margin: 0 auto;
+}
+
+.loading {
+    text-align: center;
 }
