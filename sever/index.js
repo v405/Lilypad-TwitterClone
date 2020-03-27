@@ -1,6 +1,10 @@
 const express = require('express');
-
 const app = express();
+const cors = require('cors');
+
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) =>{
     res.json({
@@ -8,7 +12,7 @@ app.get('/', (req, res) =>{
     });
 
 });
-app.post('/pads', (req,res)=>{
+app.post('/pads', (req, res)=>{
     console.log(req.body);
 });
 
