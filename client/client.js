@@ -1,5 +1,7 @@
 const form = document.querySelector("form");
-const loadingElement = document.querySelector(".loading")
+const loadingElement = document.querySelector(".loading");
+const API_URL = 'http://localhost:5000/pads';
+
 loadingElement.style.display = 'none';
 
 form.addEventListener('submit', (event)=>{
@@ -12,7 +14,16 @@ form.addEventListener('submit', (event)=>{
         name,
         content
     };
-    console.log(Lilypad);
+    
     form.style.display = 'none';
     loadingElement.style.display = '';
+
+    fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(Lilypad),
+        headers:{
+            'content-type' : 'application/json'
+        }
+    
+    });
 });
