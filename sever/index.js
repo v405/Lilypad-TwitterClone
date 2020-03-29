@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const monk = require('monk');
-const db = monk(localhost/Lilypad);
+const db = monk('localhost/Lilypad');
 const pads = db.get("pads");
 
 app.use(cors());
