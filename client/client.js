@@ -1,3 +1,5 @@
+import { response } from "express";
+
 const form = document.querySelector("form");
 const loadingElement = document.querySelector(".loading");
 const API_URL = 'http://localhost:5000/pads';
@@ -25,5 +27,14 @@ form.addEventListener('submit', (event)=>{
             'content-type' : 'application/json'
         }
     
-    });
+    }).then(response => response.json())
+      .then(createdPad => {
+          consold.log(createdPad);
+          form.reset();
+          form.style.display = 'none'; 
+          loadingElement.style.display = '';
+      })
+
+    ;
+
 });

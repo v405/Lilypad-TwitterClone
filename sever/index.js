@@ -15,6 +15,14 @@ app.get('/', (req, res) =>{
 
 });
 
+app.get('/pads', (req,res) => {
+    pads
+       .find()
+       .then(pads => {
+           res.json(pads);
+       });
+});
+
 function isValidPad(pad)  {
     return pad.name && pad.name.toString().trim() !== '' &&
     pad.content && pad.content.toString().trim() !== '';
@@ -26,7 +34,8 @@ app.post('/pads', (req, res)=>{
         //inserts into db...
         const pad = {
             name: req.body.nane.toString(),
-            content: req.body.content.toString()
+            content: req.body.content.toString(),
+            created: new Date()
         };
 
         pads
